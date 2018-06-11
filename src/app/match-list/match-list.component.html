@@ -1,0 +1,61 @@
+<div class="match-list">
+ <h1 class="match-list-header">Upcoming matches</h1>
+  <div *ngIf="paged_match_list;then showMatchList else showNoContentMessage"></div>
+  <ng-template #showNoContentMessage>No Matches </ng-template>
+  <ng-template #showMatchList>
+    <div  *ngFor="let match of paged_match_list">
+    <div class="panel panel-primary theme_panel">
+      <div  [ngClass]="match.openForVote ? 'panel-heading theme-header' : 'panel-heading disabled-theme-header'">
+        <div class="diplaymeinline">
+          {{match.team1Name}} vs {{match.team2Name}}
+        </div>
+        <div class="diplaymeinline">
+          {{match.matchTime}}
+        </div>
+        <div class="diplaymeinline bountyinline">
+         <i class="fa fa-inr" ></i>{{match.bounty}}
+        </div>
+        <div>
+          <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'" >{{match.team1Name}}
+            <input type="radio"  [disabled]="!match.openForVote" value="{{match.team1Name}}" name="vote-{{match.team1Name}}-{{match.team2Name}}" ngModel>
+            <span class="checkmark"></span>
+          </label>
+          <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> {{match.team2Name}}
+            <input type="radio" [disabled]="!match.openForVote" value="{{match.team2Name}}" name="vote-{{match.team1Name}}-{{match.team2Name}}" ngModel>
+            <span class="checkmark"></span>
+          </label>
+          <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'">Draw
+            <input type="radio" [disabled]="!match.openForVote" value="draw" name="vote-{{match.team1Name}}-{{match.team2Name}}" ngModel>
+            <span class="checkmark"></span>
+          </label>
+          <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> Not betting
+            <input type="radio" [disabled]="!match.openForVote" value="draw" name="vote-{{match.team1Name}}-{{match.team2Name}}" ngModel>
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+     </div>
+    </div>
+  </ng-template>
+</div>
+<!-- pager -->
+
+<div class="pager" *ngIf="pager">
+  <ul *ngIf="pager.pages && pager.pages.length" class="">
+    <!--<li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(1)">First</a>
+    </li> -->
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+      <a (click)="setPage(pager.currentPage - 1)"><i class="fa fa-arrow-left"></i></a>
+    </li>
+    <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+       <a (click)="setPage(page)">{{page}}</a>
+     </li> -->
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.currentPage + 1)"><i class="fa fa-arrow-right"></i></a>
+    </li>
+    <!--<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+      <a (click)="setPage(pager.totalPages)">Last</a>
+    </li> -->
+  </ul>
+</div>

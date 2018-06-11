@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import {AppService} from '../app.service';
+import {PagerService} from '../pager.service';
+
+@Component({
+  selector: 'app-leader-board',
+  templateUrl: './leader-board.component.html',
+  styleUrls: ['./leader-board.component.css']
+})
+export class LeaderBoardComponent implements OnInit {
+
+  leaderBoardList: any;
+  pager: any;
+  pagedLeaderBoard: any;
+  constructor(private pagerService: PagerService, private appService: AppService) { }
+
+  ngOnInit() {
+
+    this.appService.getLeaderBoard().subscribe
+    (user_list => {
+      this.leaderBoardList = user_list.users;
+      this.setPage(1);
+    });
+  }
+
+  setPage(page: number) {
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.leaderBoardList.length, page);
+
+    // get current page of items
+    this.pagedLeaderBoard = this.leaderBoardList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+
+}
