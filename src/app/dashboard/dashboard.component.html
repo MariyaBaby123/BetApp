@@ -1,0 +1,24 @@
+<div class="maincontainer">
+  <div style = "background-color:black">
+    <app-nav-bar></app-nav-bar>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <app-leader-board (notifyDashboard)="getNotification($event)"></app-leader-board>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="showUserView;then  showUserViewTemplate else showMatchTemaplate"></div>
+      <ng-template #showUserViewTemplate>
+        <app-user-view [match_list]="match_list" ></app-user-view>
+      </ng-template>
+      <ng-template #showMatchTemaplate>
+        <app-match-list></app-match-list>
+      </ng-template>
+    </div>
+    <div class="col-md-3">
+      <app-bounty></app-bounty>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,33 @@
+
+<div class="match-list">
+  <h1 class="match-list-header">Matches</h1>
+  <div *ngIf="match_list;then showMatchList else showNoContentMessage"></div>
+  <ng-template #showNoContentMessage>
+    No Matches
+  </ng-template>
+  <ng-template #showMatchList>
+  <div class="match-list-content">
+      <div  *ngFor="let match of match_list">
+        <div class="panel panel-primary theme_panel">
+          <div class = 'panel-heading disabled-theme-header'>
+            <div class="diplaymeinline">
+              {{match.team1Name}} vs {{match.team2Name}}
+            </div>
+            <div class="diplaymeinline">
+              {{match.matchTime}}
+            </div>
+            <div class="diplaymeinline bountyinline">
+              <i class="fa fa-inr" ></i>{{match.bounty}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  <div class="footer_buttons">
+    <a class="btn btn-danger" href="/home">Show upcoming matches</a>
+  </div>
+
+</ng-template>
+</div>

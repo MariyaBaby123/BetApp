@@ -1,0 +1,60 @@
+import { Component, OnInit } from '@angular/core';
+import {AppService} from '../app.service';
+import {PagerService} from '../pager.service';
+import {AuthenticationService} from '../login-screen/authentication.service';
+import {LocalStorageService} from 'angular-2-local-storage';
+
+@Component({
+  selector: 'app-match-list',
+  templateUrl: './match-list.component.html',
+  styleUrls: ['./match-list.component.css', '../app.component.css']
+})
+export class MatchListComponent implements OnInit {
+
+  match_list;
+  pager;
+  paged_match_list;
+  upcomingmatchLoading;
+  constructor(private localStorageService: LocalStorageService, private appService: AppService, private pagerService: PagerService) { }
+
+  ngOnInit() {
+    this.upcomingmatchLoading = true;
+    this.appService.getUpcomingMatches().subscribe
+     (match_list => {
+       this.upcomingmatchLoading = false;
+       this.match_list = match_list.matches;
+     });
+  }
+
+  setPage(page: number) {
+    // get pager object from service
+    this.pager = this.pagerService.getPager(this.match_list.length, page,5);
+
+    // get current page of items
+    this.paged_match_list = this.match_list.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+  vote(voteform): void {
+    const prediction = [];
+    const user = this.localStorageService.get('useremail');
+    for (const property in  voteform.form.controls) {
+      if ( voteform.form.controls.hasOwnProperty(property)) {
+        if ( voteform.form.controls[property].value !== '') {
+          prediction.push({'userEmail' : user, 'matchId' :  property.substr(5), 'prediction':  voteform.form.controls[property].value});
+        }
+
+      }
+    }
+    this.appService.vote(prediction).subscribe
+    (user_list => {
+      if (user_list.statusCode === 'SUCCESS') {
+        alert('Votes registered successfully');
+        voteform.reset();
+      } else {
+        alert('Votes not registered. Please try again');
+      }
+    });
+  }
+
+
+}

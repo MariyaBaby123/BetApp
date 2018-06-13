@@ -1,0 +1,18 @@
+.bounty{
+  margin:20px;
+  background: #a41919;
+  color: white;
+  padding: 9px;
+  border-radius: 6px;
+  border: #881616 2px solid;
+
+}
+.bigicon{
+  font-size:87px;
+}
+.bigtext{
+  font-size:40px;
+}
+.addmargin{
+  margin-bottom:20px;
+}

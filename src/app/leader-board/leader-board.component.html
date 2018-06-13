@@ -1,0 +1,44 @@
+<div>
+  <h1 class="leader-board-header">Leader board</h1>
+  <div *ngIf="pagedLeaderBoard;then showLeaderBoard else showNoContentMessage"></div>
+  <ng-template #showNoContentMessage>No Entries Yet</ng-template>
+  <ng-template #showLeaderBoard>
+    <div class="search">
+      <span class="fa fa-search"></span>
+      <input [(ngModel)]="searchText" class="searchbar" placeholder="Search...">
+    </div>
+
+    <div class = "leader-board">
+      <ul>
+       <li class="leader-board-li" *ngFor="let group of pagedLeaderBoard | search : searchText">
+         <a (click)="loadUserView(group)">
+           <div class="row">
+          <div class="col-md-6"> {{group.userName}} </div>
+          <div class="col-md-6"> <i class="fa fa-inr"></i> {{group.userPoints}} </div>
+        </div>
+         </a>
+       </li>
+      </ul>
+    </div>
+    <!-- pager -->
+    <div class="pager" *ngIf="pager">
+      <ul *ngIf="pager.pages && pager.pages.length" class="">
+        <!--<li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+        </li> -->
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)"><i class="fa fa-arrow-left"></i></a>
+        </li>
+       <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+        </li> -->
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)"><i class="fa fa-arrow-right"></i></a>
+        </li>
+        <!--<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+        </li> -->
+      </ul>
+    </div>
+  </ng-template>
+</div>

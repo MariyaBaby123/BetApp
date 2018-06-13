@@ -1,0 +1,121 @@
+.diplaymeinline{
+  display: inline;
+}
+.match-list{
+
+}
+.match-list-content {
+  height: 300px;
+  overflow-x: auto;
+  color:white;
+}
+.match-list-header{
+  padding: 9px;
+  background: #a41919;
+  border-radius: 6px;
+  color: white;
+  border: #881616 2px solid;
+  margin-bottom: 10px;
+}
+.theme_panel{
+  margin-bottom: 10px !important;
+  border-color: #881616 !important;
+}
+.theme-header{
+  background-color: #a41919 !important;
+  border-color: #881616 !important;
+}
+.disabled-theme-header{
+  background-color: #a46161 !important;
+  border-color: #881616 !important;
+}
+.theme-header:hover {
+  background-color: #cd1f1f !important;
+}
+.diplaymeinline.bountyinline {
+  font-size: 17px;
+  float: right;
+  color: lawngreen;
+}
+
+/*custom radio button*/
+.radio_button_container {
+  display: inline;
+  position: relative;
+  padding-left: 29px;
+  padding-right: 19px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.pointercursor{
+  cursor: pointer;
+}
+.defaultcursor{
+  cursor:default;
+}
+/* Hide the browser's default radio button */
+.radio_button_container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Create a custom radio button */
+.radio_button_container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio_button_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #a41919;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio_button_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio_button_container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #009688;
+}
+/*custom radip button ends*/
+.footer_buttons{
+  float:right;
+  margin-top:20px;
+}
+.footer_buttons button{
+  color: white;
+  background-color: #dd1010;
+  border-radius: 14px;
+  font-size: 20px;
+  border: none;
+  padding: 9px;
+  margin-left: 16px;
+}
