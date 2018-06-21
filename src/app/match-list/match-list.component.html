@@ -1,12 +1,13 @@
+<div [class.overlay] = "upcomingmatchLoading"><span [class]="upcomingmatchLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
 <form autocomplete="off" #voteform="ngForm">
   <div class="match-list">
     <h1 class="match-list-header">Upcoming matches</h1>
     <div *ngIf="match_list;then showMatchList else showNoContentMessage"></div>
     <ng-template #showNoContentMessage>
-      <div [class.overlay] = "upcomingmatchLoading"><span [class]="upcomingmatchLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
       No Matches
     </ng-template>
     <ng-template #showMatchList>
+      <div [class.overlay] = "votesubmitLoading"><span [class]="votesubmitLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
       <div class="match-list-content">
         <div  *ngFor="let match of match_list">
           <div class="panel panel-primary theme_panel">
@@ -18,27 +19,35 @@
                 {{match.matchTime}}
               </div>
               <div class="diplaymeinline bountyinline">
-                <i class="fa fa-btc" ></i>{{match.bounty}}
+                5X
               </div>
-              <div>
-                <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'" >{{match.team1Name}}
-                  <input type="radio"  [disabled]="!match.openForVote" value="{{match.team1Name}}" name="vote-{{match.matchId}}" ngModel>
-                  <span class="checkmark"></span>
-                </label>
-                <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> {{match.team2Name}}
-                  <input type="radio" [disabled]="!match.openForVote" value="{{match.team2Name}}" name="vote-{{match.matchId}}" ngModel>
-                  <span class="checkmark"></span>
-                </label>
-                <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'">Draw
-                  <input type="radio" [disabled]="!match.openForVote" value="draw" name="vote-{{match.matchId}}" ngModel>
-                  <span class="checkmark"></span>
-                </label>
+              <div class="infotext"  *ngIf="match.voted">
+                Already Voted for : {{match.votedFor}}
               </div>
+              <div *ngIf="match.openForVote;then showRadio else showNoRadio"></div>
+              <ng-template #showNoRadio>
+              <!-- View all predictions -->
+               <button routerLink="/prediction" (click)="setselectedMatch(match)">Predictions</button>
+              </ng-template>
+              <ng-template #showRadio>
+                <div>
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'" >{{match.team1Name}}
+                    <input type="radio"  value="{{match.team1Name}}" name="vote-{{match.matchId}}" ngModel>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> {{match.team2Name}}
+                    <input type="radio"  value="{{match.team2Name}}" name="vote-{{match.matchId}}" ngModel>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'">Draw
+                    <input type="radio" id="draw" value="draw" name="vote-{{match.matchId}}" ngModel>
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>
-
-
       </div>
       <div class="footer_buttons">
         <button type="submit" (click) = "vote(voteform)">Submit</button>
@@ -46,7 +55,6 @@
       </div>
     </ng-template>
   </div>
-
 
 </form>
 

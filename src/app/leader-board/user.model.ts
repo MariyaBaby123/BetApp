@@ -6,4 +6,6 @@ export class User {
  matchesWon: number;
  matchesLost: number;
  matchesNotPredicted: number;
+ prediction: string;
+ predictionTime: string;
 }

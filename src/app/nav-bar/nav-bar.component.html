@@ -4,7 +4,7 @@
         <a class="navbar-brand" href="#">Fifa Fever</a>
       </div>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mariya</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
         <li><a  (click)="modal.show()"><span class="fa fa-gavel"></span>Rules</a></li>
       </ul>
     </div>
@@ -14,8 +14,8 @@
      </div>
      <div class="app-modal-body">
        1) Player can vote only once<br>
-       2) Not Betting is not a vote<br>
-       3) Betting for a match will stop an hour before the match
+       2) Betting for a match will stop an hour before the match<br>
+       3) If a participant who has entered the game is unable to make a prediction for a match it will be treated as loss.
      </div>
      <div class="app-modal-footer">
        <button type="button" class="btn btn-default" (click)="modal.hide()">OK</button>

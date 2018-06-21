@@ -10,35 +10,35 @@
 
     <div class = "leader-board">
       <ul>
-       <li class="leader-board-li" *ngFor="let group of pagedLeaderBoard | search : searchText">
+       <li class="leader-board-li" *ngFor="let group of leaderBoardList | search : searchText">
          <a (click)="loadUserView(group)">
            <div class="row">
-          <div class="col-md-6"> {{group.userName}} </div>
-          <div class="col-md-6"> <i class="fa fa-inr"></i> {{group.userPoints}} </div>
+          <div class="col-md-12"> {{group.userEmail}} </div>
+          <div class="col-md-12"><i class="fa fa-trophy"></i>  {{group.userPoints}} </div>
         </div>
          </a>
        </li>
       </ul>
     </div>
-    <!-- pager -->
+    <!-- pager
     <div class="pager" *ngIf="pager">
       <ul *ngIf="pager.pages && pager.pages.length" class="">
         <!--<li [ngClass]="{disabled:pager.currentPage === 1}">
           <a (click)="setPage(1)">First</a>
-        </li> -->
+        </li>
         <li [ngClass]="{disabled:pager.currentPage === 1}">
           <a (click)="setPage(pager.currentPage - 1)"><i class="fa fa-arrow-left"></i></a>
         </li>
        <!-- <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
           <a (click)="setPage(page)">{{page}}</a>
-        </li> -->
+        </li>
         <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
           <a (click)="setPage(pager.currentPage + 1)"><i class="fa fa-arrow-right"></i></a>
         </li>
         <!--<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
           <a (click)="setPage(pager.totalPages)">Last</a>
-        </li> -->
+        </li>
       </ul>
-    </div>
+    </div> -->
   </ng-template>
 </div>

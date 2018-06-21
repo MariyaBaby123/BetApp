@@ -1,4 +1,4 @@
-<div class="container LoginContainer">
+<div class=" LoginContainer">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-login">
@@ -21,7 +21,7 @@
               <form autocomplete="off" #loginForm="ngForm" style="display: block;">
                 <div class="form-group">
                   <input type="text" name="LoginUsername" id="LoginUsername" [(ngModel)]="loginDataObj.userEmail"
-                         tabindex="1" class="form-control" placeholder="Username">
+                         tabindex="1" class="form-control" placeholder="User Email">
                   <div class="error" *ngIf="invalidLogin">
                     Invalid user. Please try again !!
                   </div>
@@ -42,15 +42,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="text-center">
-                        <a href="" tabindex="5" class="forgot-password">Forgot Password?</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+
               </form>
             </div>
             <div class="col-lg-12" *ngIf="!isLoginScreen">
@@ -73,7 +65,7 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <div [class.overlay] = "isLoadingRegister"><span [class]="isLoadingLogin  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
+                      <div [class.overlay] = "isLoadingRegister"><span [class]="isLoadingRegister  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
                       <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register"
                              (click) = "Register(RegisterForm)" value="Register Now" >
                     </div>

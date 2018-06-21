@@ -1,0 +1,43 @@
+.maincontainer{
+  background:url('../../assets/images/fifa.jpg');  
+  background-size:100% 100%;
+  min-height:1000px;  
+}
+
+.card {
+  list-style: none;
+  padding: 9px;
+  background: #a41919;
+  border-radius: 6px;
+  color: white;
+  border: #881616 2px solid;
+  margin-bottom: 4px;
+
+}
+
+.nocontentheader{
+  font-size: 50px;
+  color: #F44336;
+}
+
+h1.match-list-header {
+  color: white;
+  background: #a41919;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 10px 19px;
+}
+p.card-text {
+  font-size: 12px;
+}
+.innercontainer {
+  margin: 15px;
+}

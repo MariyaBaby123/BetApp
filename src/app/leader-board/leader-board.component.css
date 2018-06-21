@@ -1,3 +1,9 @@
+.leader-board{
+  height : 500px;
+  overflow-y:auto;
+  overflow-x: hidden;
+}
+
 .leader-board li{
   list-style: none;
   padding: 9px;
@@ -35,7 +41,7 @@ input.searchbar{
   margin-left: 41px;
   font-size: 17px;
   background: #ff00004d;
-  color: white;
+
 
 }
 .search { position: relative; }
@@ -45,6 +51,6 @@ input.searchbar{
   top: 12px;
   left: 242px;
   font-size: 15px;
-  color: white;
+
 
 }

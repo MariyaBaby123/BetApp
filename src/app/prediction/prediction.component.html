@@ -1,0 +1,25 @@
+<div [class.overlay] = "predictionViewLoading"><span [class]="predictionViewLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
+
+<div class="maincontainer">
+  <div class="innercontainer">
+  <div *ngIf="selectedMatchName && predictions;then  showprediction else showNoPrediction"></div>
+  <ng-template #showprediction>
+    <h1 class="match-list-header">Prediction view for Match {{selectedMatchName}}</h1>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let p of predictions">
+        <div class="card">
+          <div class="container">
+            <p class="card-text">{{p.userEmail}} - {{p.prediction}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </ng-template>
+  <ng-template #showNoPrediction>
+    <div class="nocontentheader">No match selected.</div>
+  </ng-template>
+  <div style="margin:15px">
+    <button class="btn btn-danger" routerLink="/home">Back to Home</button>
+  </div>
+  </div>
+</div>

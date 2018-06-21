@@ -27,10 +27,13 @@ export class LeaderBoardComponent implements OnInit {
 
   setPage(page: number) {
     // get pager object from service
-    this.pager = this.pagerService.getPager(this.leaderBoardList.length, page);
-
-    // get current page of items
-    this.pagedLeaderBoard = this.leaderBoardList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    if (this.leaderBoardList) {
+      this.pager = this.pagerService.getPager(this.leaderBoardList.length, page);
+      // get current page of items
+      this.pagedLeaderBoard = this.leaderBoardList.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    } else {
+      this.pagedLeaderBoard = [];
+    }
   }
 
   loadUserView(user) {

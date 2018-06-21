@@ -11,6 +11,8 @@ import {AppService} from '../app.service';
 export class DashboardComponent implements OnInit {
 
   showUserView: boolean;
+  userViewLoading: boolean;
+  selectedUser;
   match_list;
   constructor(private authService: AuthenticationService, private appService: AppService) { }
 
@@ -21,10 +23,17 @@ export class DashboardComponent implements OnInit {
 
   getNotification(user) {
     this.showUserView = true;
+    this.selectedUser = user.userEmail;
+    this.userViewLoading = true;
     this.appService.getUserTrackRecord(user).subscribe
     (match_list => {
+      this.userViewLoading = false;
       this.match_list = match_list.matches;
     });
+  }
+
+  showMatchTemplate(){
+    this.showUserView = false;
   }
 
 }

@@ -1,3 +1,5 @@
+<div [class.overlay] = "userViewLoading"><span [class]="userViewLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
+
 <div class="maincontainer">
   <div style = "background-color:black">
     <app-nav-bar></app-nav-bar>
@@ -10,7 +12,10 @@
     <div class="col-md-6">
       <div *ngIf="showUserView;then  showUserViewTemplate else showMatchTemaplate"></div>
       <ng-template #showUserViewTemplate>
-        <app-user-view [match_list]="match_list" ></app-user-view>
+        <app-user-view [match_list]="match_list" [selecteduser] = "selectedUser" ></app-user-view>
+        <div class="footer_buttons">
+          <a class="btn btn-danger" (click)="showMatchTemplate()">Show upcoming matches</a>
+        </div>
       </ng-template>
       <ng-template #showMatchTemaplate>
         <app-match-list></app-match-list>

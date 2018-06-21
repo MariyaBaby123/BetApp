@@ -3,9 +3,11 @@ body {
 }
 
 .LoginContainer{
-  background:url('/assets/images/fifa.jpg');
-  height:1000px;
-  background-size:2000px 800px;
+  background: url(/assets/images/russia.jpg) no-repeat;
+  position: absolute;
+  background-size: 1503px;
+  width: 100%;
+  height:100%
 }
 
 .error{

@@ -63,13 +63,13 @@ export class LoginScreenComponent implements OnInit {
   }
 
   Register(RegisterForm): void {
-    this.isLoadingRegister = true;
     let user = <User>{};
     user.userEmail = this.registerDataObj.email;
     user.userName = this.registerDataObj.userName;
     user.userPassword = this.registerDataObj.password;
     if (this.validateEmail(this.registerDataObj.email)) {
-      this.authService.signup(user).subscribe
+      this.isLoadingRegister = true;    
+	  this.authService.signup(user).subscribe
       (user_list => {
         this.isLoadingRegister = false;
         if (user_list.statusCode === 'SUCCESS') {

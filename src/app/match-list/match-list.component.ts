@@ -15,15 +15,32 @@ export class MatchListComponent implements OnInit {
   pager;
   paged_match_list;
   upcomingmatchLoading;
+  votesubmitLoading;
   constructor(private localStorageService: LocalStorageService, private appService: AppService, private pagerService: PagerService) { }
 
   ngOnInit() {
     this.upcomingmatchLoading = true;
-    this.appService.getUpcomingMatches().subscribe
-     (match_list => {
-       this.upcomingmatchLoading = false;
-       this.match_list = match_list.matches;
-     });
+    this.votesubmitLoading = false;
+    this.getupcomingMatch(this.localStorageService.get('useremail'));
+  }
+
+  getupcomingMatch(userEmail) {
+    this.upcomingmatchLoading = true;
+    this.appService.getUpcomingMatches(this.localStorageService.get('useremail')).subscribe
+    (match_list => {
+      this.upcomingmatchLoading = false;
+      /*set open for voting if match time is past hour from now.*/
+      if ( match_list.matches) {
+        const now = +new Date();
+        for ( const m of match_list.matches) {
+          const mDate = +new Date(m.matchTime);
+          if ( ((mDate - now) / 36e5) <= 1) {
+            m.openForVote = false;
+          }
+        }
+      }
+      this.match_list = match_list.matches;
+    });
   }
 
   setPage(page: number) {
@@ -45,15 +62,23 @@ export class MatchListComponent implements OnInit {
 
       }
     }
+    this.votesubmitLoading = true;
     this.appService.vote(prediction).subscribe
     (user_list => {
+      this.votesubmitLoading = false;
       if (user_list.statusCode === 'SUCCESS') {
         alert('Votes registered successfully');
         voteform.reset();
+        this.getupcomingMatch(this.localStorageService.get('useremail'));
       } else {
         alert('Votes not registered. Please try again');
       }
     });
+  }
+
+  setselectedMatch(match: any) {
+    this.appService.setSelectedMatchForUserView(match.matchId);
+    this.appService.setSelectedMatchNameForUserView(match.team1Name + ' vs ' + match.team2Name);
   }
 
 

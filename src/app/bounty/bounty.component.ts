@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AppService} from "../app.service";
+import {AppService} from '../app.service';
+import {LocalStorageService} from 'angular-2-local-storage';
 
 @Component({
   selector: 'app-bounty',
@@ -13,10 +14,10 @@ export class BountyComponent implements OnInit {
   points = 0;
   user_list;
   show;
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private localStorageService: LocalStorageService) { }
 
   ngOnInit() {
-    this.appService.getUserReportCard().subscribe
+    this.appService.getUserReportCard(this.localStorageService.get('useremail')).subscribe
     (user_list => {
       this.user_list = user_list.users;
       if (this.user_list && this.user_list[0]) {

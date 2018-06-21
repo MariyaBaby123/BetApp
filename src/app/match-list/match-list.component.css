@@ -1,8 +1,10 @@
 .diplaymeinline{
   display: inline;
 }
-.match-list{
-
+.infotext{
+ font-style:italic;
+  font-size:14px;
+  margin-top:3px;
 }
 .match-list-content {
   height: 300px;
@@ -107,7 +109,6 @@
 }
 /*custom radip button ends*/
 .footer_buttons{
-  float:right;
   margin-top:20px;
 }
 .footer_buttons button{

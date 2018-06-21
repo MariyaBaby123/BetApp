@@ -9,6 +9,7 @@ import {AppService} from '../app.service';
 export class UserViewComponent implements OnInit {
 
   @Input() match_list: any
+  @Input() selecteduser: any;
 
   constructor(private appService: AppService) { }
 

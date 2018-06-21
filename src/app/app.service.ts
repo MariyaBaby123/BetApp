@@ -5,11 +5,13 @@ import {MatchData, UserData} from './api-response.model';
 
 @Injectable()
 export class AppService {
-  private apiEndpoint = 'http://localhost:8080/betterapp/service/';
+  private apiEndpoint = 'http://13.232.96.213:8080/betterapp/service/';
+  private selectedMatchForUserView;
+  private selectedMatchNameForUserView;
   constructor(private http: HttpClient) {}
 
-  getUpcomingMatches() {
-    const apiURL = this.apiEndpoint + 'upcomingMatches';
+  getUpcomingMatches(userEmail) {
+    const apiURL = this.apiEndpoint + 'upcomingMatches?userEmail=' + userEmail;
     return this.http.get<MatchData>(apiURL);
   }
 
@@ -18,8 +20,8 @@ export class AppService {
     return this.http.get<UserData>(apiURL);
   }
 
-  getUserReportCard() {
-    const apiURL = this.apiEndpoint + 'userReportCard?userEmail=' + 'Sharath Ravi';
+  getUserReportCard(userEmail) {
+    const apiURL = this.apiEndpoint + 'userReportCard?userEmail=' + userEmail;
     return this.http.get<UserData>(apiURL);
   }
 
@@ -31,6 +33,27 @@ export class AppService {
   getUserTrackRecord(user) {
     const apiURL = this.apiEndpoint + 'getUserTrackRecord';
     return this.http.post<MatchData>(apiURL, user);
+  }
+
+  getSelectedMatchForUserView() {
+    return this.selectedMatchForUserView;
+  }
+
+  getSelectedMatchNameForUserView() {
+    return this.selectedMatchNameForUserView;
+  }
+
+  setSelectedMatchNameForUserView(selectedMatchNameForUserView) {
+    this.selectedMatchNameForUserView = selectedMatchNameForUserView;
+  }
+
+  setSelectedMatchForUserView(selectedMatchForUserView) {
+    this.selectedMatchForUserView = selectedMatchForUserView;
+  }
+
+  getAllPredictionsForMatch(matchId) {
+    const apiURL = this.apiEndpoint + 'getAllPredictionsForMatch?matchId=' + matchId;
+    return this.http.get<UserData>(apiURL);
   }
 
 }

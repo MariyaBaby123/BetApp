@@ -6,4 +6,8 @@ export class Match {
    matchTime: string;
    openForVote: boolean;
    creditToPlay: number;
+   voted: boolean;
+   winner: string;
+   resultOfUser: string;
+   userPointsEarned: string;
  }
