@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MatchData, UserData} from './api-response.model';
+import {MatchData, UserData, OddsData} from './api-response.model';
 
 
 @Injectable()
@@ -37,6 +37,11 @@ export class AppService {
 
   getSelectedMatchForUserView() {
     return this.selectedMatchForUserView;
+  }
+
+  getSelectedMatchOdds(matchId) {
+    const apiURL = this.apiEndpoint + 'getOddsForMatch?matchId=' + matchId;
+    return this.http.get<OddsData>(apiURL);
   }
 
   getSelectedMatchNameForUserView() {

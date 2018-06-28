@@ -11,12 +11,18 @@ export class PredictionComponent implements OnInit {
   selectedMatch;
   predictions;
   selectedMatchName;
+  selectedMatchOdds;
   predictionViewLoading;
+  matchId;
   constructor(private appService: AppService) { }
 
   ngOnInit() {
     this.selectedMatch = this.appService.getSelectedMatchForUserView();
     this.selectedMatchName = this.appService.getSelectedMatchNameForUserView();
+    this.appService.getSelectedMatchOdds(this.selectedMatch).subscribe
+    (odds => {
+      this.selectedMatchOdds = odds.matches[0];
+    });
     this.getPredictionsForMatch(this.selectedMatch);
   }
 

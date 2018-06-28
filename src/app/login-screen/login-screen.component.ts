@@ -86,7 +86,7 @@ export class LoginScreenComponent implements OnInit {
   }
 
   validateEmail(email): boolean {
-    const validRegExp = /^[a-z0-9](\.?[a-z0-9]){5,}@nielsen\.com$/;
+    const validRegExp = /^[a-z0-9](\.?-?[a-z0-9]){5,}@nielsen\.com$/;
 
     let valid = true;
 
