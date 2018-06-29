@@ -1,3 +1,5 @@
+<div [class.overlay] = "matchstatsloading"><span [class]="matchstatsloading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
+
 <div class="main-container">
   <h1 class="header">Match statistics</h1>
   <table class="table table-bordered table-responsive statstable" [mfData]="matchList" #mf="mfDataTable" >
@@ -19,7 +21,7 @@
         <td> Bets on {{match.team1Name}} : {{match.numberOfBetForTeam1}}<br>Bets on {{match.team2Name}} : {{match.numberOfBetForTeam2}}<br>Bets for DRAW : {{match.numberOfBetForDraw}}
         </td>
         <td>{{match.totalWins}}</td>
-        <td>{{match.winningBounty}}</td>j
+        <td>{{match.winningBounty}}</td>
       </tr>
     </tbody>
   </table>
