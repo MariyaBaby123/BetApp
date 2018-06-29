@@ -11,3 +11,11 @@ export class Match {
    resultOfUser: string;
    userPointsEarned: string;
  }
+
+ export class Odds {
+  team1Name: string;
+  team2Name: string;
+  numberOfBetForTeam1: number;
+  numberOfBetForTeam2: number;
+  numberOfBetForDraw: number;
+ }

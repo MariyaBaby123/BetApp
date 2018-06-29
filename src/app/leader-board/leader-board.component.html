@@ -10,10 +10,10 @@
 
     <div class = "leader-board">
       <ul>
-       <li class="leader-board-li" *ngFor="let group of leaderBoardList | search : searchText">
+       <li class="leader-board-li" *ngFor="let group of leaderBoardList | search : searchText ; let idx = index">
          <a (click)="loadUserView(group)">
            <div class="row">
-          <div class="col-md-12"> {{group.userEmail}} </div>
+          <div class="col-md-12"> <span class="leader-board-rank">{{group.rank}}</span>   {{group.userEmail}} </div>
           <div class="col-md-12"><i class="fa fa-trophy"></i>  {{group.userPoints}} </div>
         </div>
          </a>

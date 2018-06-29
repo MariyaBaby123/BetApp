@@ -8,4 +8,5 @@ export class User {
  matchesNotPredicted: number;
  prediction: string;
  predictionTime: string;
+ rank: number;
 }
