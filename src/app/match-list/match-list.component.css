@@ -120,3 +120,7 @@
   padding: 9px;
   margin-left: 16px;
 }
+
+.match-list-header a{
+  margin-left:20%;
+}

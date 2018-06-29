@@ -32,3 +32,12 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.header{
+  padding: 9px;
+  background: #a41919;
+  border-radius: 6px;
+  color: white;
+  border: #881616 2px solid;
+  margin-bottom: 10px;
+}

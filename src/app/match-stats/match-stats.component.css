@@ -1,0 +1,31 @@
+.main-container{
+  padding:45px;
+  background:url('../../assets/images/fifa.jpg');
+  height:798px;
+  background-size:100% 100%;
+  overflow-y:auto;
+}
+.statstable{
+  background-color:#f44336a1;
+  color : #fff;
+}
+
+.statstable thead {
+  font-size: 20px;
+  background-color: #d30c0cb8;
+}
+.statstable tbody {
+  display:block;
+  height:400px;
+  overflow-y:auto;
+}
+.statstable tbody tr {
+  display:table;
+  width:100%;
+  table-layout:fixed;
+}
+.statstable  thead {
+  display:table;
+  width:99%;
+  table-layout:fixed;
+}

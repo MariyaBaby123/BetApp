@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { SearchPipe} from './search.pipe';
 import {RouterModule, Routes} from '@angular/router';
 import { LocalStorageModule } from 'angular-2-local-storage';
-
+import {DataTableModule} from 'angular2-datatable';
 import { AppComponent } from './app.component';
 import { MatchListComponent } from './match-list/match-list.component';
 import { LeaderBoardComponent } from './leader-board/leader-board.component';
@@ -19,6 +19,7 @@ import {LoginScreenComponent} from './login-screen/login-screen.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { PredictionComponent } from './prediction/prediction.component';
+import { MatchStatsComponent } from './match-stats/match-stats.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   {path : 'home', component : DashboardComponent},
   {path : 'match', component : MatchListComponent},
   {path : 'prediction', component : PredictionComponent},
+  {path : 'matchStats', component : MatchStatsComponent},
   {path : '**', component : LoginScreenComponent}
 ];
 
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     LoginScreenComponent,
     DashboardComponent,
     UserViewComponent,
-    PredictionComponent
+    PredictionComponent,
+    MatchStatsComponent
 
   ],
   imports: [
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
     LocalStorageModule.withConfig({prefix: 'bet-app', storageType: 'localStorage'}),
     HttpClientModule,
     FormsModule,
+    DataTableModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

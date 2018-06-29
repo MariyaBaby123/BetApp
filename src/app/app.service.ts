@@ -56,4 +56,9 @@ export class AppService {
     return this.http.get<UserData>(apiURL);
   }
 
+  getPastMatchStatistics() {
+    const apiURL = this.apiEndpoint + 'getMatchStatistics';
+    return this.http.get<MatchData>(apiURL);
+  }
+
 }

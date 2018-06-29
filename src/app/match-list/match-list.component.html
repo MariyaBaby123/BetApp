@@ -1,7 +1,7 @@
 <div [class.overlay] = "upcomingmatchLoading"><span [class]="upcomingmatchLoading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
 <form autocomplete="off" #voteform="ngForm">
   <div class="match-list">
-    <h1 class="match-list-header">Upcoming matches</h1>
+    <h1 class="match-list-header">Upcoming matches <a class="btn btn-danger btn-sm" routerLink="/matchStats">See Past Match statistics</a></h1>
     <div *ngIf="match_list;then showMatchList else showNoContentMessage"></div>
     <ng-template #showNoContentMessage>
       No Matches
@@ -27,7 +27,7 @@
               <div *ngIf="match.openForVote;then showRadio else showNoRadio"></div>
               <ng-template #showNoRadio>
               <!-- View all predictions -->
-               <button routerLink="/prediction" (click)="setselectedMatch(match)">Predictions</button>
+               <button class="btn btn-danger" routerLink="/prediction" (click)="setselectedMatch(match)">Predictions</button>
               </ng-template>
               <ng-template #showRadio>
                 <div>

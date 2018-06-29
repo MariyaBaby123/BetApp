@@ -29,16 +29,6 @@ export class MatchListComponent implements OnInit {
     this.appService.getUpcomingMatches(this.localStorageService.get('useremail')).subscribe
     (match_list => {
       this.upcomingmatchLoading = false;
-      /*set open for voting if match time is past hour from now.*/
-      if ( match_list.matches) {
-        const now = +new Date();
-        for ( const m of match_list.matches) {
-          const mDate = +new Date(m.matchTime);
-          if ( ((mDate - now) / 36e5) <= 1) {
-            m.openForVote = false;
-          }
-        }
-      }
       this.match_list = match_list.matches;
     });
   }
