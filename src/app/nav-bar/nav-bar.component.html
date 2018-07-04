@@ -1,24 +1,34 @@
- <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">Fifa Fever</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
-        <li><a  (click)="modal.show()"><span class="fa fa-gavel"></span>Rules</a></li>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Fifa Fever</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
+      <li><a  (click)="modal.show()"><span class="fa fa-gavel"></span>Rules</a></li>
+    </ul>
+  </div>
+  <app-modal #modal>
+    <div class="app-modal-header">
+      <h2>Rules</h2>
+    </div>
+    <div class="app-modal-body">
+      <ul>
+        <li> Betting for a match will stop an hour before the match</li>
+        <li> If a participant who has entered the game is unable to make a prediction for a match it will be treated as loss.</li>
+        <li> <b>Knock out stage rules</b> considering the France vs Argentina match as reference</li>
+        <ul>
+          <li>If France or Argentina are tied at the end of regular time (90) and extra time(30 minutes), match advances into a penalty shoot-out </li>
+
+          <li>If the result of the penalty shoot-out is a France win or a Argentina win, only those who selected option 3 will win the bounty. </li>
+
+          <li>Option 1 and 2 will be considered as a failed selection regardless if the team they selected won the penalty shoot-out or not </li>
+        </ul>
       </ul>
     </div>
-   <app-modal #modal>
-     <div class="app-modal-header">
-       <h2>Rules</h2>
-     </div>
-     <div class="app-modal-body">
-       1) Betting for a match will stop an hour before the match<br>
-       2) If a participant who has entered the game is unable to make a prediction for a match it will be treated as loss.
-     </div>
-     <div class="app-modal-footer">
-       <button type="button" class="btn btn-default" (click)="modal.hide()">OK</button>
+    <div class="app-modal-footer">
+      <button type="button" class="btn btn-default" (click)="modal.hide()">OK</button>
 
-     </div>
-   </app-modal>
- </nav>
+    </div>
+  </app-modal>
+</nav>

@@ -22,7 +22,10 @@ export class PredictionComponent implements OnInit {
     this.appService.getSelectedMatchOdds(this.selectedMatch).subscribe
     (odds => {
       this.selectedMatchOdds = odds.matches[0];
-    });
+    },
+      error => {
+        this.predictionViewLoading = false;
+      });
     this.getPredictionsForMatch(this.selectedMatch);
   }
 
@@ -32,7 +35,10 @@ export class PredictionComponent implements OnInit {
     (user_list => {
       this.predictionViewLoading = false;
       this.predictions = user_list.users;
-    });
+    },
+      error => {
+        this.predictionViewLoading = false;
+      });
   }
 
 }

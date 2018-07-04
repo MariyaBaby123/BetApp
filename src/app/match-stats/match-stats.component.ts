@@ -19,12 +19,12 @@ export class MatchStatsComponent implements OnInit {
     (match_list => {
       this.matchstatsloading = false;
       this.matchList = match_list.matches;
-      for ( const m of this.matchList) {
+    /* for ( const m of this.matchList) {
         if (m && new Date(m.matchTime)) {
-          const m_date = new Date(m.matchTime + ' GMT+0530');
+          const m_date = new Date(m.matchTime);
           m.matchTime = m_date.toLocaleString();
         }
-      }
+      }*/
     });
   }
 }

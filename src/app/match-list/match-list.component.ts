@@ -30,12 +30,12 @@ export class MatchListComponent implements OnInit {
     (match_list => {
       this.upcomingmatchLoading = false;
       this.match_list = match_list.matches;
-      for ( const m of this.match_list) {
+      /*for ( const m of this.match_list) {
         if (m && new Date(m.matchTime)) {
-          const m_date = new Date(m.matchTime + ' GMT+0530');
+          const m_date = new Date(m.matchTime);
           m.matchTime = m_date.toLocaleString();
         }
-      }
+      }*/
     });
   }
 

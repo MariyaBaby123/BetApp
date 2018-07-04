@@ -31,15 +31,15 @@
               </ng-template>
               <ng-template #showRadio>
                 <div>
-                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'" >{{match.team1Name}}
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'" >{{match.team1Name}}(120 min)
                     <input type="radio"  value="{{match.team1Name}}" name="vote-{{match.matchId}}" ngModel>
                     <span class="checkmark"></span>
                   </label>
-                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> {{match.team2Name}}
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'"> {{match.team2Name}}(120 min)
                     <input type="radio"  value="{{match.team2Name}}" name="vote-{{match.matchId}}" ngModel>
                     <span class="checkmark"></span>
                   </label>
-                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'">Draw
+                  <label [ngClass]="match.openForVote ? 'radio_button_container pointercursor' : 'radio_button_container defaultcursor'">Match advances to Penalty
                     <input type="radio" id="draw" value="draw" name="vote-{{match.matchId}}" ngModel>
                     <span class="checkmark"></span>
                   </label>
