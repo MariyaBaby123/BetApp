@@ -5,7 +5,7 @@ import {MatchData, UserData, OddsData, ChampionData} from './api-response.model'
 
 @Injectable()
 export class AppService {
-  private apiEndpoint = 'http://localhost:8080/betterapp/service/';
+  private apiEndpoint = 'http://13.232.96.213:8080/betterapp/service/';
   private selectedMatchForUserView;
   private selectedMatchNameForUserView;
   constructor(private http: HttpClient) {}

@@ -8,10 +8,10 @@
 
   body {
     margin: auto;
-    background: #eaeaea;  
+    background: #eaeaea;
     font-family: 'Open Sans', sans-serif;
   }
-  
+
   .info p {
     text-align:center;
     color: #999;
@@ -20,21 +20,21 @@
     font-size:15px;
     margin-top:2px
   }
-  
+
   .info i {
     color:#F6AA93;
   }
   form h1 {
     font-size: 18px;
-    background: #F6AA93 none repeat scroll 0% 0%;
+    background: #d5461b none repeat scroll 0% 0%;
     color: rgb(255, 255, 255);
     padding: 22px 25px;
     border-radius: 5px 5px 0px 0px;
     margin: auto;
-    text-shadow: none; 
+    text-shadow: none;
     text-align:left
   }
-  
+
   form {
     border-radius: 5px;
     max-width:700px;
@@ -43,20 +43,20 @@
     background-color: #FFFFFF;
     overflow: hidden;
   }
-  
+
   p span {
     color: #F00;
   }
-  
+
   p {
     margin: 0px;
     font-weight: 500;
     line-height: 2;
     color:#333;
   }
-  
+
   h1 {
-    text-align:center; 
+    text-align:center;
     color: #666;
     text-shadow: 1px 1px 0px #FFF;
     margin:50px 0px 0px 0px
@@ -80,16 +80,16 @@
     float: left;
     padding: 5px 15px;
   }
-  
+
   a {
     text-decoration:inherit
   }
-  
+
   .form-group {
     overflow: hidden;
     clear: both;
   }
-  
+
   .icon-case {
     width: 35px;
     float: left;
@@ -148,15 +148,15 @@
     height:42px;
     content: url("../../assets/images/eng.png")
   }
-  
+
   i {
     color:#555;
   }
-  
+
   .contentform {
     padding: 40px 30px;
   }
-  
+
   .submit-button{
     background-color: #81BDA4;
     color: #FFF;
@@ -169,22 +169,22 @@
     margin-top: 40px;
     font-size: 18px;
   }
-  
+
   .leftcontent {
-    width:49.5%; 
+    width:49.5%;
     float:left;
     border-right: 1px dotted #CCC;
     box-sizing: border-box;
     padding: 0px 15px 0px 0px;
   }
-  
+
   .rightcontent {
     width:49.5%;
     float:right;
     box-sizing: border-box;
     padding: 0px 0px 0px 15px;
   }
-  
+
   .validation {
     display:none;
     margin: 0 0 10px;
@@ -192,7 +192,7 @@
     font-size:13px;
     color: #DE5959;
   }
-  
+
   #sendmessage {
     border:1px solid #fff;
     display:block;
@@ -207,5 +207,4 @@
     border-radius: 3px;
     box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
   }
-  
-  
+

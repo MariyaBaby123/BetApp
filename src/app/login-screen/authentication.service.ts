@@ -8,7 +8,7 @@ import {LocalStorageService} from 'angular-2-local-storage';
 @Injectable()
 export class AuthenticationService {
 
-  private apiEndpoint = 'http://localhost:8080/betterapp/service/';
+  private apiEndpoint = 'http://13.232.96.213:8080/betterapp/service/';
   constructor(private localStorageService: LocalStorageService, private http: HttpClient, private _router: Router) {}
   signup(user) {
     const apiURL = this.apiEndpoint + 'generateActivationLink?userEmail=' + user.userEmail;
