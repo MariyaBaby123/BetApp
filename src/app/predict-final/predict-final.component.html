@@ -1,0 +1,104 @@
+<div [class.overlay] = "votesubmitLoading"><span [class]="votesubmitLoading  ? 'loader' : 'hide'"><img src="../../assets/images/some.gif" /></span></div>
+<div class="main-container">
+    <div>
+        <!--<a class="navbar-brand" href="#">Fifa Fever</a>-->
+        <a class="btn btn-danger" routerLink="/home">Back to home</a>
+      </div>
+  <form #championVoteform="ngForm">
+    <h1>Predict the final winner</h1>
+    
+    <div class="contentform">
+      <div id="sendmessage"  *ngIf="successMessage"> You have successfully voted. Thank you. </div>
+
+      <div class="leftcontent">
+        <div class="form-group">
+          <input id="radio-1" class="radio-custom" type="radio"
+          name="champion"
+          value="URUGUAY"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-uruguay"></i></span>
+          <label for="radio-1" class="radio-custom-label">Uruguay</label>
+        </div> 
+
+        <div class="form-group">
+          <input id="radio-2" class="radio-custom" type="radio"
+          name="champion"
+          value="FRANCE"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-france"></i></span>
+          <label for="radio-2" class="radio-custom-label">France</label>
+        </div> 
+
+        <div class="form-group">
+          <input id="radio-3" class="radio-custom" type="radio"
+          name="champion"
+          value="BRAZIL"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-brazil"></i></span>
+          <label for="radio-3" class="radio-custom-label">Brazil</label>
+        </div>   
+
+        <div class="form-group">
+          <input id="radio-4" class="radio-custom" type="radio"
+          name="champion"
+          value="BELGIUM"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-belgium"></i></span>
+          <label for="radio-4" class="radio-custom-label">Belgium</label>
+        </div> 
+
+</div>
+
+<div class="rightcontent">  
+
+  <div class="form-group">
+    <input id="radio-5" class="radio-custom" type="radio"
+    name="champion"
+    value="RUSSIA"
+    [(ngModel)]="winner"
+    >
+    <span class="icon-case"><i class="fa fa-russia"></i></span>
+    <label for="radio-5" class="radio-custom-label">Russia</label>
+  </div>  
+
+  <div class="form-group">
+    <input id="radio-6" class="radio-custom" type="radio"
+    name="champion"
+    value="CROATIA"
+    [(ngModel)]="winner"
+    >
+    <span class="icon-case"><i class="fa fa-croatia"></i></span>
+    <label for="radio-6" class="radio-custom-label">Croatia</label>
+  </div> 
+
+  <div class="form-group">
+    <input id="radio-7" class="radio-custom" type="radio"
+    name="champion"
+    value="SWEDEN"
+    [(ngModel)]="winner"
+    >
+    <span class="icon-case"><i class="fa fa-sweden"></i></span>
+    <label for="radio-7" class="radio-custom-label">Sweden</label>
+  </div> 
+
+  <div class="form-group">
+    <input id="radio-8" class="radio-custom" type="radio"
+    name="champion"
+    value="ENGLAND"
+    [(ngModel)]="winner"
+    >
+    <span class="icon-case"><i class="fa fa-england"></i></span>
+    <label for="radio-8" class="radio-custom-label">England</label>
+  </div> 
+     
+</div>
+</div>
+<button type="submit" class="submit-button" (click) = voteForFinalChampion(championVoteform)>Submit</button>
+
+</form> 
+</div>
+

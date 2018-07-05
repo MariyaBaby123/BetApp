@@ -20,6 +20,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { PredictionComponent } from './prediction/prediction.component';
 import { MatchStatsComponent } from './match-stats/match-stats.component';
+import { PredictFinalComponent } from './predict-final/predict-final.component';
 
 
 const appRoutes: Routes = [
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
   {path : 'match', component : MatchListComponent},
   {path : 'prediction', component : PredictionComponent},
   {path : 'matchStats', component : MatchStatsComponent},
+  {path : 'predictChampion', component : PredictFinalComponent},
   {path : '**', component : LoginScreenComponent}
 ];
 
@@ -44,7 +46,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     UserViewComponent,
     PredictionComponent,
-    MatchStatsComponent
+    MatchStatsComponent,
+    PredictFinalComponent
 
   ],
   imports: [
