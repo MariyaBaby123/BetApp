@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MatchData, UserData, OddsData} from './api-response.model';
+import {MatchData, UserData, OddsData, ChampionData} from './api-response.model';
 
 
 @Injectable()
@@ -28,6 +28,11 @@ export class AppService {
   vote(prediction) {
     const apiURL = this.apiEndpoint + 'vote';
     return this.http.post<UserData>(apiURL, prediction);
+  }
+
+  voteForChampion(champion) {
+    const apiURL = this.apiEndpoint + 'voteForChampion';
+    return this.http.post<ChampionData>(apiURL, champion);
   }
 
   getUserTrackRecord(user) {

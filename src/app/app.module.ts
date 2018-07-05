@@ -22,6 +22,7 @@ import { PredictionComponent } from './prediction/prediction.component';
 import { MatchStatsComponent } from './match-stats/match-stats.component';
 import {ResetPasswordComponent} from './reset-password/reset-password.component';
 import {AuthGuard} from './login-screen/auth-guard';
+import { PredictFinalComponent } from './predict-final/predict-final.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +33,11 @@ const appRoutes: Routes = [
   {path : 'prediction', component : PredictionComponent , canActivate: [AuthGuard]},
   {path : 'matchStats', component : MatchStatsComponent , canActivate: [AuthGuard]},
   {path : 'resetPassword', component : ResetPasswordComponent},
+  {path : 'home', component : DashboardComponent},
+  {path : 'match', component : MatchListComponent},
+  {path : 'prediction', component : PredictionComponent},
+  {path : 'matchStats', component : MatchStatsComponent},
+  {path : 'predictChampion', component : PredictFinalComponent},
   {path : '**', component : LoginScreenComponent}
 ];
 
@@ -49,7 +55,9 @@ const appRoutes: Routes = [
     UserViewComponent,
     PredictionComponent,
     MatchStatsComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    PredictFinalComponent
+
 
   ],
   imports: [
