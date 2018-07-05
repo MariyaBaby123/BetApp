@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.showUserView = false;
-    this.authService.checkCredentials();
+
   }
 
   getNotification(user) {
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  showMatchTemplate(){
+  showMatchTemplate() {
     this.showUserView = false;
   }
 

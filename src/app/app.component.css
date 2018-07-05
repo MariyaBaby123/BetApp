@@ -1,3 +1,8 @@
+.maincontainer{
+  background:url('../assets/images/fifa.jpg');
+  height:798px;
+  background-size:100% 100%;
+}
 .overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */

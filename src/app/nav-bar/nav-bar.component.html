@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">Fifa Fever</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
+      <li><a (click)="logout()" ><span class="glyphicon glyphicon-user"></span> {{username}}</a></li>
       <li><a  (click)="modal.show()"><span class="fa fa-gavel"></span>Rules</a></li>
     </ul>
   </div>

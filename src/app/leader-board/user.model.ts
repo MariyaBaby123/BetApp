@@ -9,4 +9,5 @@ export class User {
  prediction: string;
  predictionTime: string;
  rank: number;
+ code:number;
 }

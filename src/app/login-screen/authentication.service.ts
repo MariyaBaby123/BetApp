@@ -8,11 +8,11 @@ import {LocalStorageService} from 'angular-2-local-storage';
 @Injectable()
 export class AuthenticationService {
 
-  private apiEndpoint = 'http://13.232.96.213:8080/betterapp/service/';
+  private apiEndpoint = 'http://localhost:8080/betterapp/service/';
   constructor(private localStorageService: LocalStorageService, private http: HttpClient, private _router: Router) {}
   signup(user) {
-    const apiURL = this.apiEndpoint + 'createUser';
-    const response = this.http.post<UserData>(apiURL, user);
+    const apiURL = this.apiEndpoint + 'generateActivationLink?userEmail=' + user.userEmail;
+    const response = this.http.get<UserData>(apiURL);
     return response;
   }
 
@@ -33,10 +33,15 @@ export class AuthenticationService {
     this.localStorageService.set('useremail', user.userEmail);
   }
 
-  checkCredentials() {
-    if (this.localStorageService.get('username') === null) {
-      this._router.navigate(['Login']);
-    }
+  isUserLoggedIn() {
+    return !(this.localStorageService.get('username') === null);
+
+  }
+
+  resetPassword(user) {
+    const apiURL = this.apiEndpoint + 'resetPassword';
+    const response = this.http.post<UserData>(apiURL, user);
+    return response;
   }
 
 }

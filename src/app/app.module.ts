@@ -20,14 +20,18 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { UserViewComponent } from './user-view/user-view.component';
 import { PredictionComponent } from './prediction/prediction.component';
 import { MatchStatsComponent } from './match-stats/match-stats.component';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {AuthGuard} from './login-screen/auth-guard';
 
 
 const appRoutes: Routes = [
   {path : '', component : LoginScreenComponent},
-  {path : 'home', component : DashboardComponent},
-  {path : 'match', component : MatchListComponent},
-  {path : 'prediction', component : PredictionComponent},
-  {path : 'matchStats', component : MatchStatsComponent},
+  {path : 'login', component : LoginScreenComponent},
+  {path : 'home', component : DashboardComponent , canActivate: [AuthGuard]},
+  {path : 'match', component : MatchListComponent , canActivate: [AuthGuard]},
+  {path : 'prediction', component : PredictionComponent , canActivate: [AuthGuard]},
+  {path : 'matchStats', component : MatchStatsComponent , canActivate: [AuthGuard]},
+  {path : 'resetPassword', component : ResetPasswordComponent},
   {path : '**', component : LoginScreenComponent}
 ];
 
@@ -44,7 +48,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     UserViewComponent,
     PredictionComponent,
-    MatchStatsComponent
+    MatchStatsComponent,
+    ResetPasswordComponent
 
   ],
   imports: [
@@ -58,7 +63,8 @@ const appRoutes: Routes = [
   providers: [
     AppService,
     PagerService,
-    AuthenticationService
+    AuthenticationService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
