@@ -32,12 +32,8 @@ const appRoutes: Routes = [
   {path : 'match', component : MatchListComponent , canActivate: [AuthGuard]},
   {path : 'prediction', component : PredictionComponent , canActivate: [AuthGuard]},
   {path : 'matchStats', component : MatchStatsComponent , canActivate: [AuthGuard]},
-  {path : 'resetPassword', component : ResetPasswordComponent},
-  {path : 'home', component : DashboardComponent},
-  {path : 'match', component : MatchListComponent},
-  {path : 'prediction', component : PredictionComponent},
-  {path : 'matchStats', component : MatchStatsComponent},
-  {path : 'predictChampion', component : PredictFinalComponent},
+  {path : 'resetPassword', component : ResetPasswordComponent}, 
+  {path : 'predictChampion', component : PredictFinalComponent, canActivate: [AuthGuard]},
   {path : '**', component : LoginScreenComponent}
 ];
 
