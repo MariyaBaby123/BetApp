@@ -46,7 +46,7 @@ export class LoginScreenComponent implements OnInit {
 
   Login (loginForm): void {
     this.isLoadingLogin = true;
-    const user = <User>{};
+    let user = <User>{};
     user.userEmail = this.loginDataObj.userEmail;
     user.userPassword = this.loginDataObj.password;
     this.authService.login(user).subscribe
@@ -63,17 +63,17 @@ export class LoginScreenComponent implements OnInit {
   }
 
   Register(RegisterForm): void {
-    const user = <User>{};
+    let user = <User>{};
     user.userEmail = this.registerDataObj.email;
-   // user.userName = this.registerDataObj.userName;
-   // user.userPassword = this.registerDataObj.password;
+    user.userName = this.registerDataObj.userName;
+    user.userPassword = this.registerDataObj.password;
     if (this.validateEmail(this.registerDataObj.email)) {
       this.isLoadingRegister = true;
-	  this.authService.signup(user).subscribe
+      this.authService.signup(user).subscribe
       (user_list => {
         this.isLoadingRegister = false;
         if (user_list.statusCode === 'SUCCESS') {
-          alert('An activation link has been sent you. Please use that login');
+          alert('User registered successfully. You can login now');
           this.isLoginScreen = true;
         } else {
           alert('User registration failed! Please try again or contact admin');

@@ -11,8 +11,8 @@ export class AuthenticationService {
   private apiEndpoint = 'http://13.232.96.213:8080/betterapp/service/';
   constructor(private localStorageService: LocalStorageService, private http: HttpClient, private _router: Router) {}
   signup(user) {
-    const apiURL = this.apiEndpoint + 'generateActivationLink?userEmail=' + user.userEmail;
-    const response = this.http.get<UserData>(apiURL);
+    const apiURL = this.apiEndpoint + 'createUser';
+    const response = this.http.post<UserData>(apiURL, user);
     return response;
   }
 
