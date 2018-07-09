@@ -1,4 +1,4 @@
-import {Match, Odds} from './match-list/match.model';
+import {Match, Odds , Prediction} from './match-list/match.model';
 import {User} from './leader-board/user.model';
 import {Champion} from './predict-final/champion.model';
 
@@ -18,6 +18,12 @@ export class OddsData {
   message: string;
   statusCode: string;
   matches: Odds[];
+}
+
+export class OddsDataForJackpot {
+  message: string;
+  statusCode: string;
+  predictions: Prediction[];
 }
 
 export class ChampionData {

@@ -19,3 +19,9 @@ export class Match {
   numberOfBetForTeam2: number;
   numberOfBetForDraw: number;
  }
+
+export class Prediction {
+  prediction: string;
+  jackpotBets: number;
+  totalJackPotBets: number;
+}

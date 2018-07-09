@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {MatchData, UserData, OddsData, ChampionData} from './api-response.model';
+import {MatchData, UserData, OddsData, ChampionData , OddsDataForJackpot} from './api-response.model';
 
 
 @Injectable()
@@ -69,6 +69,16 @@ export class AppService {
   getPastMatchStatistics() {
     const apiURL = this.apiEndpoint + 'getMatchStatistics';
     return this.http.get<MatchData>(apiURL);
+  }
+
+  getMatchStatisticsJackPot1() {
+    const apiURL = this.apiEndpoint + 'getMatchStatisticsJackPot1';
+    return this.http.get<UserData>(apiURL);
+  }
+
+  getOddsForJackpot1() {
+    const apiURL = this.apiEndpoint + 'getOddsForJackpot1';
+    return this.http.get<OddsDataForJackpot>(apiURL);
   }
 
 }

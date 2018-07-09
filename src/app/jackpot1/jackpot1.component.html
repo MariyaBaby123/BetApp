@@ -1,0 +1,30 @@
+<div [class.overlay] = "matchstatsloading"><span [class]="matchstatsloading  ? 'loader' : 'hide'"><img src="../assets/images/some.gif" /></span></div>
+<div class="maincontainerJackpot">
+  <div class="innercontainer">
+    <div *ngIf="totalbets && selectedMatchOdds;then  showprediction else showNoPrediction"></div>
+    <ng-template #showprediction>
+      <h1 class="match-list-header">Prediction view for Jackpot (Total bets :{{totalbets}})</h1>
+      <div class="card-header">
+        <span class="addSpace" *ngFor="let s of selectedMatchOdds">
+            {{s.prediction}} - {{s.jackpotBets}}
+        </span>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4" *ngFor="let p of predictions">
+          <div class="card">
+            <div class="container">
+              <p class="card-text">{{p.userEmail}} - {{p.prediction}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template #showNoPrediction>
+      <div class="nocontentheader">No content to show.</div>
+    </ng-template>
+    <div style="margin:15px">
+      <button class="btn btn-danger" routerLink="/home">Back to Home</button>
+    </div>
+  </div>
+</div>

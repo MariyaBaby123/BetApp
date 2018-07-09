@@ -1,0 +1,18 @@
+.maincontainerJackpot {
+  background:url('../../assets/images/fifa.jpg');
+  height: 100%;
+  background-size: 100% 100%;
+}
+.addSpace{
+  margin:17px;
+}
+.card-header{
+  background : #bc5738 !important;
+  list-style: none;
+  padding: 9px;
+  border-radius: 6px;
+  color: white;
+  border: #881616 2px solid;
+  margin-bottom: 4px;
+
+}
