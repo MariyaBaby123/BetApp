@@ -25,19 +25,23 @@ export class PredictFinalComponent implements OnInit {
     const user = this.localStorageService.get('useremail');
     predictionObj.userEmail = user;
     predictionObj.prediction = this.winner;
-    // prediction.push({'userEmail' : user, 'prediction' :  this.winner});
-    this.appService.voteForChampion(predictionObj).subscribe
-    (vote => {
+    if (confirm('Bounty for betting in this jackpot is 200 instead of usual 50. So please vote if you are willing to bet for 200.')) {
+      this.appService.voteForChampion(predictionObj).subscribe
+      (vote => {
+        this.votesubmitLoading = false;
+        if (vote.statusCode === 'SUCCESS') {
+          alert('Votes registered successfully');
+          championVoteform.reset();
+          this.successMessage = true;
+          // this.getupcomingMatch(this.localStorageService.get('useremail'));
+        } else {
+          alert('Votes not registered. Please try again');
+        }
+      });
+    } else {
       this.votesubmitLoading = false;
-      if (vote.statusCode === 'SUCCESS') {
-        alert('Votes registered successfully');
-        championVoteform.reset();
-        this.successMessage = true;
-        // this.getupcomingMatch(this.localStorageService.get('useremail'));
-      } else {
-        alert('Votes not registered. Please try again');
-      }
-    });
+    }
+    // prediction.push({'userEmail' : user, 'prediction' :  this.winner});
     this.successMessage = false;
   }
 
