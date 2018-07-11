@@ -25,7 +25,7 @@ export class SemiFinalComponent implements OnInit {
     const user = this.localStorageService.get('useremail');
     predictionObj.userEmail = user;
     predictionObj.prediction = this.winner;
-    if (confirm('Bounty for betting in this jackpot is 300 instead of usual 50. So please vote if you are willing to bet for 200.')) {
+    if (confirm('Bounty for betting in this jackpot is 300 instead of usual 50. So please vote if you are willing to bet for 300.')) {
       this.appService.voteForChampion2(predictionObj).subscribe
       (vote => {
         this.votesubmitLoading = false;
