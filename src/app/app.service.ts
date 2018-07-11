@@ -76,13 +76,13 @@ export class AppService {
     return this.http.get<MatchData>(apiURL);
   }
 
-  getMatchStatisticsJackPot1() {
-    const apiURL = this.apiEndpoint + 'getMatchStatisticsJackPot1';
+  getMatchStatisticsJackPot1(matchId) {
+    const apiURL = this.apiEndpoint + 'getMatchStatisticsJackPot1?matchId=' + matchId;
     return this.http.get<UserData>(apiURL);
   }
 
-  getOddsForJackpot1() {
-    const apiURL = this.apiEndpoint + 'getOddsForJackpot1';
+  getOddsForJackpot1(matchId) {
+    const apiURL = this.apiEndpoint + 'getOddsForJackpot1?matchId=' + matchId;
     return this.http.get<OddsDataForJackpot>(apiURL);
   }
 
