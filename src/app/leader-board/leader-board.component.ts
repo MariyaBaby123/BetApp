@@ -14,6 +14,7 @@ export class LeaderBoardComponent implements OnInit {
   leaderBoardList: any;
   pager: any;
   pagedLeaderBoard: any;
+  selectedIndex: any;
   constructor(private pagerService: PagerService, private appService: AppService) { }
 
   ngOnInit() {
@@ -36,7 +37,9 @@ export class LeaderBoardComponent implements OnInit {
     }
   }
 
-  loadUserView(user) {
+  loadUserView(user, i) {
+    this.selectedIndex = null;
+    this.selectedIndex = i;
     this.notifyDashboard.emit(user);
   }
 

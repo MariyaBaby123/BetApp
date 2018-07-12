@@ -5,7 +5,7 @@ import {LocalStorageService} from 'angular-2-local-storage';
 @Component({
   selector: 'app-bounty',
   templateUrl: './bounty.component.html',
-  styleUrls: ['./bounty.component.css']
+  styleUrls: ['./bounty.component.css', '../nav-bar/nav-bar.component.css']
 })
 export class BountyComponent implements OnInit {
 

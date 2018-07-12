@@ -28,7 +28,7 @@
   margin-bottom: 4px;
 }
 li.leader-board-li:hover {
-  background: #cd1f1f !important;
+  background: #6bef27 !important;
 }
 .pager a{
   cursor: pointer;
@@ -59,4 +59,9 @@ input.searchbar{
   font-weight: bold; 
   font-size: 1.5em; 
   color :#FBFF00;
+}
+
+.LeaderSelected{
+  color: #060606 !important;
+  background:#6bef27 !important;
 }
