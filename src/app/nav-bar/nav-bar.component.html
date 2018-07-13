@@ -1,10 +1,10 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <ul  class="nav navbar-nav">
-      <!--<li><a class="championButton" routerLink="/predictChampion">JackPot</a></li>-->
-        <li><a style="color:#fff" [routerLink]="['/jackpot1']" [queryParams]="{matchId : 100} " >Quarter Predictions</a></li>
-        <li><a style="color:#fff" [routerLink]="['/jackpot1']" [queryParams]="{matchId : 101} ">Semi Predictions</a></li>
+      <ul  class="nav navbar-nav navbar-center">
+        <li><a class="championButton" routerLink="/predictChampion">Grand Finale!!!</a></li>
+        <!--<li><a style="color:#fff" [routerLink]="['/jackpot1']" [queryParams]="{matchId : 100} " >Quarter Predictions</a></li>
+        <li><a style="color:#fff" [routerLink]="['/jackpot1']" [queryParams]="{matchId : 101} ">Semi Predictions</a></li>-->
       </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
@@ -16,10 +16,30 @@
     <div class="app-modal-header">
       <h2>Rules</h2>
     </div>
-    <div class="app-modal-body">
+    <div class="app-modal-body" style="height: 500px;overflow-y: auto;">
       <ul>
         <li> Betting for a match will stop an hour before the match</li>
         <li> If a participant who has entered the game is unable to make a prediction for a match it will be treated as loss.</li>
+        <li>World cup final rules </li>
+        <ul>
+          <li>There are 6 options : ( match bounty is 100 per person )</li>
+          <ul>
+            <li>CROATIA WINS ( minimal bounty )</li>
+            <li>CROATIA WINS IN EXTRA TIME ( 2 times minimal bounty )</li>
+            <li>CROATIA WINS IN PENALTY ( 2.5 times minimal bounty )</li>
+            <li>FRANCE WINS ( minimal bounty )</li>
+            <li>FRANCE WINS IN EXTRA TIME ( 2 times minimal bounty )</li>
+            <li>FRANCE WINS IN PENALTY ( 2.5 tims minimal bounty )</li>
+          </ul>
+          <li>
+            The idea is that the winning money ( sum of all losers money which is 100 per person ) will be divided based on the weights
+            for eg , if france wins in extra time , then whoever voted for option 4 or 5 will be winners. But option 5 winners will get 2 times more money than option 4 winners.
+            The idea is that , people voting for specific options should get more money if they win because they are taking more risk .
+            If 12 people votes  out of which only 2 people won ( assuming france won in extra time ).
+            among those 2 , if 1 voted for  "FRANCE WINS" and 1 voted for "FRANCE WINS IN EXTRA TIME".
+            so losing money is 1000 ( 10 people who lost * 100 per match )  which will be divided in ( 1:2 ratio ) , so the one voted for "FRANCE WINS" will get 333.33 and one voted for "FRANCE WINS in EXTRA TIME" will get 666.66
+          </li>
+        </ul>
         <li> <b>Knock out stage rules</b> considering the France vs Argentina match as reference</li>
         <ul>
           <li>If France or Argentina are tied at the end of regular time (90) and extra time(30 minutes), match advances into a penalty shoot-out </li>

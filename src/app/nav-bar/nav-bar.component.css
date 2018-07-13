@@ -48,5 +48,13 @@
   -o-animation: flickerAnimation .5s infinite;
   animation: flickerAnimation .5s infinite;
   font-size:27px;
-  color:#FFD700;
+  color:#FFD700 !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+  }
 }

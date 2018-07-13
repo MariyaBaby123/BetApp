@@ -1,0 +1,85 @@
+<div [class.overlay] = "votesubmitLoading"><span [class]="votesubmitLoading  ? 'loader' : 'hide'"><img src="../../assets/images/some.gif" /></span></div>
+<div class="main-container">
+    <div>
+        <!--<a class="navbar-brand" href="#">Fifa Fever</a>-->
+        <a class="btn btn-danger" routerLink="/home">Back to home</a>
+      </div>
+  <form #championVoteform="ngForm">
+    <h1>Who lifts the Cup <!--<i class="fa fa-warning" style="color: #f91103;font-size: 2em;"> HIGH BOUNTY ALERT!!!!</i>--></h1>
+
+    <div class="contentform">
+      <div id="sendmessage"  *ngIf="successMessage"> You have successfully voted. Thank you. </div>
+
+      <div class="leftcontent">
+
+        <div class="form-group">
+          <input id="radio-2" class="radio-custom" type="radio"
+          name="champion"
+          value="CROATIA WINS"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-croatia"></i></span>
+          <label for="radio-2" class="radio-custom-label">Croatia Wins</label>
+        </div>
+
+        <div class="form-group">
+          <input id="radio-3" class="radio-custom" type="radio"
+          name="champion"
+          value="CROATIA WINS IN EXTRA TIME"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-croatia"></i></span>
+          <label for="radio-3" class="radio-custom-label">Croatia Wins in Extra time</label>
+        </div>
+
+        <div class="form-group">
+          <input id="radio-4" class="radio-custom" type="radio"
+          name="champion"
+          value="CROATIA WINS IN PENALTY"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-croatia"></i></span>
+          <label for="radio-4" class="radio-custom-label">Croatia Wins in Penalty</label>
+        </div>
+
+      </div>
+
+      <div class="rightcontent">
+
+        <div class="form-group">
+            <input id="radio-5" class="radio-custom" type="radio"
+            name="champion"
+            value="FRANCE WINS"
+            [(ngModel)]="winner"
+            >
+            <span class="icon-case"><i class="fa fa-france"></i></span>
+            <label for="radio-5" class="radio-custom-label">France wins</label>
+          </div>
+
+        <div class="form-group">
+          <input id="radio-6" class="radio-custom" type="radio"
+          name="champion"
+          value="FRANCE WINS IN EXTRA TIME"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-france"></i></span>
+          <label for="radio-6" class="radio-custom-label">France wins in extra time</label>
+        </div>
+
+        <div class="form-group">
+          <input id="radio-8" class="radio-custom" type="radio"
+          name="champion"
+          value="FRANCE WINS IN PENALTY"
+          [(ngModel)]="winner"
+          >
+          <span class="icon-case"><i class="fa fa-france"></i></span>
+          <label for="radio-8" class="radio-custom-label">France wins in penalty</label>
+        </div>
+
+      </div>
+</div>
+<button type="submit" class="submit-button" (click) = voteForFinalChampion(championVoteform)>Submit</button>
+
+</form>
+</div>
+

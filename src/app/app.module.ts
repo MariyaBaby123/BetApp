@@ -25,6 +25,7 @@ import {AuthGuard} from './login-screen/auth-guard';
 import { PredictFinalComponent } from './predict-final/predict-final.component';
 import { SemiFinalComponent } from './semi-final/semi-final.component';
 import {Jackpot1Component} from './jackpot1/jackpot1.component';
+import { FinalComponent } from './final/final.component';
 
 
 const appRoutes: Routes = [
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
   {path : 'matchStats', component : MatchStatsComponent , canActivate: [AuthGuard]},
   {path : 'resetPassword', component : ResetPasswordComponent},
   {path : 'jackpot1', component : Jackpot1Component, canActivate: [AuthGuard]},
-  {path : 'predictChampion', component : SemiFinalComponent, canActivate: [AuthGuard]},
+  {path : 'predictChampion', component : FinalComponent, canActivate: [AuthGuard]},
   {path : '**', component : LoginScreenComponent}
 ];
 
@@ -57,7 +58,8 @@ const appRoutes: Routes = [
     ResetPasswordComponent,
     PredictFinalComponent,
     SemiFinalComponent,
-    Jackpot1Component
+    Jackpot1Component,
+    FinalComponent
 
   ],
   imports: [
