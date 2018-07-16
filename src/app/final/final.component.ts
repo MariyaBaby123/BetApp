@@ -22,14 +22,16 @@ export class FinalComponent implements OnInit {
     this.votesubmitLoading = true;
     const predictionObj = {
       'userEmail' : {},
-      'prediction' : ''
+      'prediction' : '',
+      'matchId' : ''
     };
+    this.matchId = 102;
     const user = this.localStorageService.get('useremail');
     predictionObj.userEmail = user;
     predictionObj.prediction = this.winner;
-    this.matchId = 102;
+    predictionObj.matchId = this.matchId;
     if (confirm('To see bounty distribution amongst above optons , please click on  the rules link in the homepage.')) {
-      this.appService.voteForFinalChampion(predictionObj, this.matchId).subscribe
+      this.appService.voteForFinalChampion(predictionObj).subscribe
       (vote => {
         this.votesubmitLoading = false;
         if (vote.statusCode === 'SUCCESS') {

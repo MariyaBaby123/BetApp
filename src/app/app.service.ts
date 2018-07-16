@@ -40,8 +40,8 @@ export class AppService {
     return this.http.post<ChampionData>(apiURL, champion);
   }
 
-  voteForFinalChampion(champion, matchId) {
-    const apiURL = this.apiEndpoint + 'voteForChampion2?matchId=' + matchId;
+  voteForFinalChampion(champion) {
+    const apiURL = this.apiEndpoint + 'voteForChampion2';
     return this.http.post<ChampionData>(apiURL, champion);
   }
 
